@@ -3,14 +3,12 @@
 {
   home.packages =  with pkgs;[
     android-studio
-
-    jetbrains.webstorm
+    gnomeExtensions.blur-my-shell 
     jetbrains.datagrip
-    
+    jetbrains.pycharm-professional
+    jetbrains.webstorm
     libreoffice-fresh
     obsidian
-    
-    gnomeExtensions.blur-my-shell 
     telegram-desktop
     zotero
   ];
@@ -19,6 +17,11 @@
     enable = true;
     userEmail = "yurandarezky@gmail.com";
     userName = "chiz4r0";
+  };
+
+  programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
   };
 
   dconf = {
