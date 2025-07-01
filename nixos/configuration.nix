@@ -109,7 +109,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     users.tabun = {
-      imports =  [ ./home.nix ];
+      imports =  [ ../home ];
       home.username = "tabun";
       home.homeDirectory = "/home/tabun";
       home.stateVersion = "24.05";
