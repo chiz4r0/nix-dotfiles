@@ -45,6 +45,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  #services.desktopManager.cosmic.enable = true;
+
   # tlp
   services.power-profiles-daemon.enable = false;
   services.tlp = {

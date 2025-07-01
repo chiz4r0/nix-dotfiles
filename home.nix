@@ -4,6 +4,7 @@
   home.packages =  with pkgs;[
     android-studio
     gnomeExtensions.blur-my-shell 
+    gnomeExtensions.pop-shell
     jetbrains.datagrip
     jetbrains.pycharm-professional
     jetbrains.webstorm
@@ -43,6 +44,7 @@
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           blur-my-shell.extensionUuid
+          pop-shell.extensionUuid
         ];
       };
 
