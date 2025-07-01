@@ -95,6 +95,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tabun = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "audio" "video" "disk"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
@@ -115,6 +116,7 @@
   };
 
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
