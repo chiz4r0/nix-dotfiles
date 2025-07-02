@@ -14,7 +14,7 @@
       ./modules/system.nix
       ./modules/tlp.nix
       ./modules/users.nix
-      # inputs.home-manager.nixosModules.home-manager
+      ./modules/virtualisation.nix
     ];
 
 }
