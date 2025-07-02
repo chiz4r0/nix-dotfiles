@@ -5,23 +5,8 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "catLinux"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
-  time.timeZone = "Asia/Jakarta";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -35,43 +20,17 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  # Zram
-  zramSwap.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   #services.desktopManager.cosmic.enable = true;
 
   # tlp
-  services.power-profiles-daemon.enable = false;
-  services.tlp = {
-    enable = true;
-    settings = {
-      #Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
-      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+  
 
-    };
-  };
-
-  ## Printing
-  services.printing.enable = true;
-  services.printing.drivers = [
-    (pkgs.epson-201401w)
-  ];
+  
   
   ## VGA
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [ amdvlk ];
-    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk];
-  };
+
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -90,65 +49,12 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
-  nixpkgs.config.allowUnfree = true;
-  
-  security.sudo.wheelNeedsPassword = false;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tabun = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "audio" "video" "disk"]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-    ];
-  };
 
-  ### Home Manager
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    users.tabun = {
-      imports =  [ ../home ];
-      home.username = "tabun";
-      home.homeDirectory = "/home/tabun";
-      home.stateVersion = "24.05";
-      programs.home-manager.enable = true;
-    };
-  };
 
-  programs.firefox.enable = true;
-  programs.zsh.enable = true;
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-  ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    league-gothic
-    adwaita-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    corefonts
-    font-awesome
-    source-han-sans
-    source-han-sans-japanese
-    source-han-serif-japanese
-    powerline-fonts
-    powerline-symbols
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -191,8 +97,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
 }
 

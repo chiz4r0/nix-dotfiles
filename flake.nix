@@ -23,7 +23,7 @@
     nixosConfigurations = {
       catLinux = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ .nixos/configuration.nix ];
+        modules = [ ./nixos ];
         specialArgs = {
           inherit self inputs;
         };
