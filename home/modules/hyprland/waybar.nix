@@ -195,7 +195,7 @@
 
         /* Hyprland Window Title */
         #window {
-            background-color: #222b36;
+            background-color: #061b25;
             color: #e0e0e0;
             padding: 0 12px;
             margin: 4px 2px;
@@ -206,9 +206,9 @@
 
         /* GLOBAL WINDOW STYLES */
         window#waybar {
-            background-color: rgba(43, 48, 59, 0.9);
+            background-color: rgba(1, 17, 33, 0.6);
             color: #ffffff;
-            border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+            border-bottom: 1px solid rgba(100, 114, 125, 0.5);
             transition: background-color 0.5s ease;
             border-radius: 0;
         }
@@ -302,12 +302,12 @@
 
         /* Clock */
         #clock {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
 
         /* Battery */
         #battery {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
         #battery.charging,
         #battery.plugged {
@@ -322,7 +322,7 @@
 
         /* CPU & Memory */
         #cpu, #memory {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
 
         /* Disk */
@@ -333,7 +333,7 @@
 
         /* Network */
         #network {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
         #network.disconnected {
             background-color: #f53c3c;
@@ -342,17 +342,17 @@
         /* Audio */
         #pulseaudio,
         #wireplumber {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
             color: #333333;
         }
         #pulseaudio.muted,
         #wireplumber.muted {
-            color: #bbccdd;
+            color: #fefcfd;
         }
 
         /* Temperature */
         #temperature {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
         #temperature.critical {
             background-color: #eb4d4b;
@@ -360,12 +360,12 @@
 
         /* Backlight */
         #backlight {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
 
         /* Idle Inhibitor */
         #idle_inhibitor {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
         }
         #idle_inhibitor.activated {
             background-color: #ecf0f1;
@@ -405,7 +405,7 @@
 
         #custom-power {
             background-color: transparent;
-            color: #bbccdd;
+            color: #fefcfd;
             font-weight: bold;
             font-size: 18px;
             margin-right: 10px;
@@ -424,7 +424,7 @@
 
         /* Keyboard State */
         #keyboard-state {
-            background-color: #bbccdd;
+            background-color: #fefcfd;
             color: #333333;
             padding: 0;
             margin: 6px 3px;
