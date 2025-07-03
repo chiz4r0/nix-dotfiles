@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, de, ... }:
 
 {
   imports =
@@ -23,7 +23,10 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     users.tabun = {
-      imports =  [ ../home ];
+      imports = 
+        [ ../home ]
+        ++ lib.optional (de == "hyprland") ../home/hyprland.nix
+        ++ lib.optional (de == "gnome") ../home/gnome.nix;      
       home.username = "tabun";
       home.homeDirectory = "/home/tabun";
       home.stateVersion = "24.05";

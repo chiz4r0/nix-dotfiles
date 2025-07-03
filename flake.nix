@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,9 +26,13 @@
     nixosConfigurations = {
       catLinux = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./nixos ];
+        modules = [ 
+          ./nixos
+          inputs.hyprland.nixosModules.default
+        ];
         specialArgs = {
           inherit self inputs;
+          de = "gnome";
         };
       };
     };
