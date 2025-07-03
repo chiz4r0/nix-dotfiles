@@ -14,4 +14,8 @@
     vscode
     zotero
   ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
